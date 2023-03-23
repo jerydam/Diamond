@@ -5,11 +5,12 @@ import { LibDiamond } from "../libraries/LibDiamond.sol";
 import { IERC173 } from "../interfaces/IERC173.sol";
 
 contract OwnershipFacet is IERC173 {
+    uint public age;
     function transferOwnership(address _newOwner) external override {
         LibDiamond.enforceIsContractOwner();
         LibDiamond.setContractOwner(_newOwner);
     }
-
+function age()public{}
     function owner() external override view returns (address owner_) {
         owner_ = LibDiamond.contractOwner();
     }
